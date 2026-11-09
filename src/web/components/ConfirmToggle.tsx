@@ -13,7 +13,7 @@ export function ConfirmToggle({ label, confirmed, onConfirm }: ConfirmToggleProp
         aria-label={`Confirm ${label}`}
         className="relative h-4 w-7 rounded-full bg-line-strong transition-colors data-[state=checked]:bg-hold"
       >
-        <Switch.Thumb className="block size-3 translate-x-0.5 rounded-full bg-surface shadow-sm transition-transform data-[state=checked]:translate-x-3.5" />
+        <Switch.Thumb className="block size-3 translate-x-0.5 rounded-full bg-surface shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] data-[state=checked]:translate-x-3.5" />
       </Switch.Root>
     </label>
   );

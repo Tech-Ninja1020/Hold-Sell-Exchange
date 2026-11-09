@@ -53,7 +53,7 @@ export function InputField({ field, inputs, onEdit, onConfirm }: InputFieldProps
           </Slider.Track>
           <Slider.Thumb
             aria-label={label}
-            className="group relative block size-4 rounded-full border border-line-strong bg-surface shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="group relative block size-4 rounded-full border border-line-strong bg-surface shadow-sm transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-125"
           >
             <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-control bg-ink px-2 py-0.5 text-xs whitespace-nowrap text-on-ink money opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100">
               {display}

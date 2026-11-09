@@ -20,3 +20,11 @@
 @utility money {
   font-variant-numeric: tabular-nums lining-nums;
 }
+
+.hero-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(115deg, transparent 25%, black 100%);
+}

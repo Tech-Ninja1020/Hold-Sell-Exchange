@@ -1,0 +1,117 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ink: #0e1826;
+  --ink-raised: #16233a;
+  --ink-line: #24344f;
+  --on-ink: #f1ede4;
+  --on-ink-muted: #9aa6b8;
+
+  --canvas: #f7f4ee;
+  --surface: #fffdf9;
+  --surface-sunken: #efeae0;
+  --line: #e2dccf;
+  --line-strong: #cfc7b6;
+
+  --text: #18212e;
+  --text-muted: #5b6472;
+  --text-faint: #8a8f98;
+
+  --accent: #8a6a24;
+  --accent-soft: #f1e7cf;
+  --unconfirmed: #c98a1b;
+  --negative: #a23b2a;
+
+  /* Strategy hues validated for CVD separation against each mode's surface. */
+  --hold: #0f7a55;
+  --hold-stepup: #3daa80;
+  --sell: #bf4f24;
+  --exchange: #2a62a8;
+
+  --elevation-card:
+    0 1px 0 rgb(24 33 46 / 0.03), 0 1px 2px rgb(24 33 46 / 0.04),
+    0 8px 24px -12px rgb(24 33 46 / 0.1);
+  --elevation-lift:
+    0 1px 0 rgb(24 33 46 / 0.03), 0 4px 8px rgb(24 33 46 / 0.05),
+    0 20px 40px -16px rgb(24 33 46 / 0.18);
+}
+
+.dark {
+  --ink: #0a121d;
+  --ink-raised: #121d2e;
+  --ink-line: #1f2d44;
+  --on-ink: #ece7dc;
+  --on-ink-muted: #8d99ab;
+
+  --canvas: #0e1826;
+  --surface: #142033;
+  --surface-sunken: #0b1420;
+  --line: #24324a;
+  --line-strong: #33435f;
+
+  --text: #ece7dc;
+  --text-muted: #a3adbd;
+  --text-faint: #76818f;
+
+  --accent: #d3ad5c;
+  --accent-soft: #2b2718;
+  --unconfirmed: #e0a23a;
+  --negative: #e07a66;
+
+  --hold: #0b7350;
+  --hold-stepup: #34a87c;
+  --sell: #d2622f;
+  --exchange: #4a8bd6;
+
+  --elevation-card: 0 0 0 1px rgb(255 255 255 / 0.02), 0 8px 24px -12px rgb(0 0 0 / 0.5);
+  --elevation-lift: 0 0 0 1px rgb(255 255 255 / 0.04), 0 20px 40px -16px rgb(0 0 0 / 0.65);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-ink-line: var(--ink-line);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-muted: var(--on-ink-muted);
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-unconfirmed: var(--unconfirmed);
+  --color-negative: var(--negative);
+
+  --color-hold: var(--hold);
+  --color-hold-stepup: var(--hold-stepup);
+  --color-sell: var(--sell);
+  --color-exchange: var(--exchange);
+
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1rem;
+  --text-eyebrow--letter-spacing: 0.08em;
+  --text-figure: 2.75rem;
+  --text-figure--line-height: 1;
+  --text-figure--letter-spacing: -0.02em;
+  --text-hero: 3.5rem;
+  --text-hero--line-height: 1.05;
+  --text-hero--letter-spacing: -0.025em;
+
+  --radius-card: 0.625rem;
+  --radius-control: 0.375rem;
+
+  --shadow-card: var(--elevation-card);
+  --shadow-lift: var(--elevation-lift);
+
+  --container-page: 78rem;
+}

@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+
+@layer base {
+  body {
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+  }
+}
+
+@utility money {
+  font-variant-numeric: tabular-nums lining-nums;
+}

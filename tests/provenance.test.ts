@@ -7,6 +7,7 @@ import {
   type SourcedInputs,
   analyze,
   confirm,
+  revise,
   unconfirmedInputs,
   unwrap,
 } from '../src/engine/provenance';
@@ -155,6 +156,13 @@ describe('unconfirmed inputs', () => {
     expect(analyze(after).unconfirmed.holdStepUp).toEqual([]);
     expect(analyze(after).result).toEqual(baseline);
     expect(inputs.landValue.confirmed).toBe(false);
+  });
+
+  it('come back when a confirmed value is edited', () => {
+    const edited = revise(inputs, 'loanRate', 0.07);
+    expect(edited.loanRate).toEqual({ value: 0.07, source: 'owner_estimate', confirmed: false });
+    expect(unconfirmedInputs('loanBalance', edited)).toEqual(['loanRate']);
+    expect(inputs.loanRate.confirmed).toBe(true);
   });
 
   it('are empty when everything is confirmed', () => {

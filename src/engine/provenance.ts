@@ -101,6 +101,16 @@ export const confirm = (inputs: SourcedInputs, key: InputKey): SourcedInputs => 
   [key]: { ...inputs[key], confirmed: true },
 });
 
+/** An edited value is no longer what its source said, so it goes back to unconfirmed. */
+export const revise = <K extends InputKey>(
+  inputs: SourcedInputs,
+  key: K,
+  value: Inputs[K],
+): SourcedInputs => ({
+  ...inputs,
+  [key]: { value, source: 'owner_estimate', confirmed: false },
+});
+
 export type Analysis = {
   result: SimulationResult;
   unconfirmed: Record<StrategyKey, InputKey[]>;

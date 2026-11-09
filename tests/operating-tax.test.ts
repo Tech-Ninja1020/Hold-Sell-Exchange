@@ -1,7 +1,8 @@
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 import { cents, fromDollars } from '../src/engine/money';
-import { type TaxRates, settleRentalIncome } from '../src/engine/tax';
+import { settleRentalIncome } from '../src/engine/tax';
+import type { TaxRates } from '../src/engine/types';
 
 const rates: TaxRates = {
   ordinaryRate: 0.32,

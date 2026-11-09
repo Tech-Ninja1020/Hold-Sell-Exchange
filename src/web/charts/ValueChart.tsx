@@ -1,7 +1,9 @@
+import { useReducedMotion } from 'motion/react';
 import {
   Area,
   AreaChart,
   CartesianGrid,
+  ReferenceDot,
   ReferenceLine,
   ResponsiveContainer,
   Tooltip,
@@ -12,7 +14,12 @@ import { formatMoney, formatMoneyCompact } from '../format';
 import { STRATEGY_META, STRATEGY_ORDER } from '../strategies';
 import type { ChartPoint } from './chartData';
 
-type ValueChartProps = { points: ChartPoint[]; decisionYear: number; selectedYear: number };
+type ValueChartProps = {
+  points: ChartPoint[];
+  decisionYear: number;
+  selectedYear: number;
+  onSelectYear: (year: number) => void;
+};
 
 const axisTick = { fill: 'var(--text-faint)', fontSize: 12 };
 
@@ -61,14 +68,22 @@ export function ChartLegend() {
   );
 }
 
-export function ValueChart({ points, decisionYear, selectedYear }: ValueChartProps) {
+export function ValueChart({ points, decisionYear, selectedYear, onSelectYear }: ValueChartProps) {
+  const reduced = useReducedMotion();
   const lastYear = points.length;
+  const selected = points[selectedYear - 1]!;
   const ticks = points.map((p) => p.year).filter((year) => year === 1 || year % 5 === 0);
 
   return (
-    <div className="h-80 sm:h-96">
+    <div className="h-72 cursor-pointer sm:h-96">
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={points} margin={{ top: 24, right: 12, bottom: 0, left: 0 }}>
+        <AreaChart
+          data={points}
+          margin={{ top: 24, right: 12, bottom: 0, left: 0 }}
+          onClick={({ activeLabel }) =>
+            activeLabel !== undefined && onSelectYear(Number(activeLabel))
+          }
+        >
           <defs>
             {STRATEGY_ORDER.map((key) => (
               <linearGradient key={key} id={`fill-${key}`} x1="0" y1="0" x2="0" y2="1">
@@ -122,7 +137,20 @@ export function ValueChart({ points, decisionYear, selectedYear }: ValueChartPro
               fill={`url(#fill-${key})`}
               dot={false}
               activeDot={{ r: 4, stroke: 'var(--surface)', strokeWidth: 2 }}
-              isAnimationActive={false}
+              isAnimationActive={!reduced}
+              animationDuration={700}
+              animationEasing="ease-out"
+            />
+          ))}
+          {STRATEGY_ORDER.map((key) => (
+            <ReferenceDot
+              key={key}
+              x={selectedYear}
+              y={selected[key]}
+              r={4}
+              fill={STRATEGY_META[key].color}
+              stroke="var(--surface)"
+              strokeWidth={2}
             />
           ))}
         </AreaChart>

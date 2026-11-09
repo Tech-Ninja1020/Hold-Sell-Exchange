@@ -23,7 +23,7 @@ export function YearScrubber({ year, lastYear, calendarYear, onChange }: YearScr
         </Slider.Track>
         <Slider.Thumb
           aria-label="Year"
-          className="block size-4 rounded-full border-2 border-text bg-surface shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="block size-4 rounded-full border-2 border-text bg-surface shadow-sm transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-125"
         />
       </Slider.Root>
       <p className="w-28 shrink-0 text-right text-sm text-text money">
